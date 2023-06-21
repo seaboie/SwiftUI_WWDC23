@@ -13,5 +13,6 @@ struct SwiftUI_WWDC23App: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Person.self)
     }
 }
