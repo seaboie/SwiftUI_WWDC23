@@ -9,13 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        ScrollView(.vertical, showsIndicators: false, content: {
+            LazyVStack(content: {
+                ForEach(1...30, id: \.self) { num in
+                    Rectangle()
+                        .fill(.red)
+                        .frame(height: 185)
+                        .scrollTransition(topLeading: .interactive, bottomTrailing: .identity) { view, phase in
+                            view
+                                .opacity(1 - (phase.value < 0 ? -phase.value : phase.value))
+                            
+                        }
+                }
+            })
+            .padding(.horizontal, 30)
+        })
     }
 }
 
