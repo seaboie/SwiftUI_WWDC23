@@ -9,13 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        ScrollView {
+            
+            Rectangle()
+                .fill(.red)
+                .frame(height: 120)
+                .visualEffect { view, proxy in
+                    view
+                        .offset(y: proxy.bounds(of: .scrollView)?.minY ?? 0)
+                }
+                .zIndex(1)
+            LazyVStack {
+                ForEach(1...30, id: \.self) { item in
+                    Rectangle()
+                        .fill(.blue.gradient)
+                        .frame(height: 35)
+                }
+                .padding(.horizontal, 35)
+            }
         }
-        .padding()
+        .ignoresSafeArea(.container, edges: .top)
+        
+
     }
 }
 
