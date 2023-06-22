@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showView: Bool = false;
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+            if (showView) {
+                Text("Hello World")
+            }
+            Button("Show View") {
+                withAnimation(.spring(), completionCriteria: .removed) {
+                    showView.toggle()
+                } completion: {
+                    print("Completed But View Not Removed")
+                }
+
+            }
+        }    }
 }
 
 #Preview {
