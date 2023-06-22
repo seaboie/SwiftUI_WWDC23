@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var feedback: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Button("Send Haptics Feedback") {
+            feedback.toggle();
         }
-        .padding()
+        .sensoryFeedback(.warning, trigger: feedback)
     }
 }
 
