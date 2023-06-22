@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isAnimatedSymbol: Bool = true;
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+            Image(systemName: "suit.heart.fill")
+            .font(.largeTitle)
+            .foregroundStyle(.red)
+            .symbolEffect(.pulse, options: .repeating, value: isAnimatedSymbol)
+            .onTapGesture {
+                    isAnimatedSymbol.toggle()
+            }
     }
 }
 
