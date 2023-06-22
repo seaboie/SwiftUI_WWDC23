@@ -6,26 +6,37 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @State private var value: CGFloat = 0;
     
+    @Bindable var user:  User = .init()
+    
     var body: some View {
-        VStack {
+        NavigationStack {
             
-            Button(
-                "Show View"
-            ) {
-                value = 10
+            VStack {
+                
+                TextField("Name", text: $user.name)
+
             }
-        }
-        .onChange(of: value, initial: true) { oldValue, newValue in
-            print(oldValue, newValue)
+            .navigationTitle("Hello")
+            .onChange(of: user.name, initial: true) { oldValue, newValue in
+                print(oldValue, newValue)
+                
+            }
         }
     }
 }
 
 #Preview {
-    ContentView(
-    )
+    ContentView()
+}
+
+@Observable
+class User {
+    var name: String = ""
+    var email: String = ""
+    
 }
