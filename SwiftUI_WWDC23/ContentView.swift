@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showView: Bool = false;
+    @State private var value: CGFloat = 0;
     
     var body: some View {
         VStack {
-            if (showView) {
-                Text("Hello World")
+            
+            Button(
+                "Show View"
+            ) {
+                value = 10
             }
-            Button("Show View") {
-                withAnimation(.spring(), completionCriteria: .removed) {
-                    showView.toggle()
-                } completion: {
-                    print("Completed But View Not Removed")
-                }
-
-            }
-        }    }
+        }
+        .onChange(of: value, initial: true) { oldValue, newValue in
+            print(oldValue, newValue)
+        }
+    }
 }
 
 #Preview {
-    ContentView()
+    ContentView(
+    )
 }
