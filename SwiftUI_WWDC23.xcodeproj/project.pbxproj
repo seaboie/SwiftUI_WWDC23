@@ -11,6 +11,7 @@
 		810742C02A42BD2200DAE085 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810742BF2A42BD2200DAE085 /* ContentView.swift */; };
 		810742C22A42BD2300DAE085 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 810742C12A42BD2300DAE085 /* Assets.xcassets */; };
 		810742C52A42BD2300DAE085 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 810742C42A42BD2300DAE085 /* Preview Assets.xcassets */; };
+		814AE8932A44A2F800E33BF3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814AE8922A44A2F800E33BF3 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		810742BF2A42BD2200DAE085 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		810742C12A42BD2300DAE085 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		810742C42A42BD2300DAE085 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		814AE8922A44A2F800E33BF3 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		810742BC2A42BD2200DAE085 /* SwiftUI_WWDC23 */ = {
 			isa = PBXGroup;
 			children = (
+				814AE8912A44A2E400E33BF3 /* Models */,
 				810742BD2A42BD2200DAE085 /* SwiftUI_WWDC23App.swift */,
 				810742BF2A42BD2200DAE085 /* ContentView.swift */,
 				810742C12A42BD2300DAE085 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				810742C42A42BD2300DAE085 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		814AE8912A44A2E400E33BF3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				814AE8922A44A2F800E33BF3 /* Person.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814AE8932A44A2F800E33BF3 /* Person.swift in Sources */,
 				810742C02A42BD2200DAE085 /* ContentView.swift in Sources */,
 				810742BE2A42BD2200DAE085 /* SwiftUI_WWDC23App.swift in Sources */,
 			);
