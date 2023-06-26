@@ -10,8 +10,21 @@ import SwiftUI
 struct HalfCard: View {
     var body: some View {
         VStack {
+            Spacer()
             Image(systemName: "crown.fill")
                 .font(.system(size: 80))
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(alignment: .topLeading) {
+            VStack {
+                Image(systemName: "crown.fill")
+                    .font(.body)
+                Text("Q")
+                    .font(.largeTitle)
+                Image(systemName: "heart.fill")
+                    .font(.title)
+            }
+            .padding()
         }
     }
 }

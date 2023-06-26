@@ -18,12 +18,8 @@ struct ContentView: View {
     @State private var sendReadReceipts: Bool = true
     
     var body: some View {
-        VStack {
-            Rectangle()
-                .foregroundColor(.white)
-                .overlay(alignment: .topLeading) {
-                    IconView()
-                }
+        
+            
             VStack(alignment: .leading) {
                 
                 HalfCard()
@@ -32,21 +28,16 @@ struct ContentView: View {
                 
             }
             .foregroundColor(.red)
+            .aspectRatio(0.7, contentMode: .fit)
+            .background {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black)
+            }
             
-            Rectangle()
-                .foregroundColor(.white)
-                .overlay(alignment: .bottomTrailing) {
-                    IconView()
-                        .rotationEffect(.degrees(180))
-                }
-        }
-        .padding(22)
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.black)
-        )
-        .aspectRatio(0.7, contentMode: .fit)
-        .padding()
+            .padding()
+            
+            
+       
         
         
     }
