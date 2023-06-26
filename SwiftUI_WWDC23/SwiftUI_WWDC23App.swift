@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct SwiftUI_WWDC23App: App {
+    
+    @StateObject var dataModel = DataModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                ContentView()
+            }
+            .environmentObject(dataModel)
+            
         }
     }
 }
