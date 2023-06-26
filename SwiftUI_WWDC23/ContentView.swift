@@ -7,42 +7,58 @@
 
 import SwiftUI
 
-enum Sizes : String {
-    case large = "ใหญ่"
-    case small = "เล็ก"
-    case medium = "กลาง"
-}
 
 struct ContentView: View {
-    @State private var profileImageSize: Sizes = Sizes.large
-    @State private var sendReadReceipts: Bool = true
+    
+    @State private var value: String = ""
     
     var body: some View {
         
-            
-            VStack(alignment: .leading) {
-                
-                HalfCard()
-                HalfCard()
-                    .rotationEffect(.degrees(180))
-                
-            }
-            .foregroundColor(.red)
-            .aspectRatio(0.7, contentMode: .fit)
-            .background {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black)
-            }
-            
+        MoodViewFull(value: $value)
             .padding()
-            
-            
-       
-        
-        
     }
 }
 
 #Preview {
     ContentView()
+}
+
+struct MoodViewFull: View {
+    @Binding var value: String
+    private let emojis = ["😢", "😴", "😁", "😡", "😐"]
+    
+    var body: some View {
+        VStack {
+            Text("What's your mood?")
+                .font(.headline)
+                .foregroundColor(.darkBrown)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            HStack {
+                ForEach(emojis, id: \.self) { emoji in
+                    Button {
+                        withAnimation {
+                            value = emoji
+                        }
+                    } label: {
+                        VStack {
+                            Text(emoji)
+                                .font(.system(size: value == emoji ? 65 : 35))
+                                .frame(maxWidth: .infinity)
+                                .padding(.bottom)
+                            Image(systemName: value == emoji ? "circle.fill" : "circle")
+                                .font(.system(size: 16))
+                                .foregroundColor(.darkBrown)
+                        }
+                    }
+                }
+            }
+            .frame(maxHeight: .infinity, alignment: .center)
+        }
+        .frame(minHeight: 100, maxHeight: 200)
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 12)
+                .foregroundColor(.gray.opacity(0.4))
+        }
+    }
 }
